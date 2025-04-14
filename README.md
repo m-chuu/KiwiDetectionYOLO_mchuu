@@ -1,82 +1,87 @@
-<H1 align="center">
-YOLOv8 Object Detection with DeepSORT Tracking(ID + Trails) </H1>
+# YOLOv8 Object Detection with DeepSORT Tracking (ID + Trails)
 
-## Google Colab File Link (A Single Click Solution)
-The google colab file link for yolov8 object detection and tracking is provided below, you can check the implementation in Google Colab, and its a single click implementation, you just need to select the Run Time as GPU, and click on Run All.
+## YOLO (You Only Look Once)
 
-[`Google Colab File`](https://colab.research.google.com/drive/1U6cnTQ0JwCg4kdHxYSl2NAhU4wK18oAu?usp=sharing)
+YOLO is an object detection algorithm that outperforms RCNN, Fast R-CNN, Faster R-CNN, and Mask R-CNN. YOLO is known for its speed and efficiency in detecting multiple objects within an image or video stream. 
 
-## Object Detection and Tracking (ID + Trails)  using YOLOv8 on Custom Data
-## Google Colab File Link (A Single Click Solution)
-[`Google Colab File`](https://colab.research.google.com/drive/1dEpI2k3m1i0vbvB4bNqPRQUO0gSBTz25?usp=sharing)
+- **Image Classification:** A convolutional neural network (CNN) classifies objects in an image.
+- **Object Localization:** YOLO provides both classification and the bounding box (position of the object in the image).
 
-## YOLOv8 Segmentation with DeepSORT Object Tracking
+When multiple objects are present in an image, YOLO performs well by:
 
-[`Github Repo Link`](https://github.com/MuhammadMoinFaisal/YOLOv8_Segmentation_DeepSORT_Object_Tracking.git)
+1. Using **Intersection Over Union (IoU)** to get unique bounding boxes.
+2. Resolving grid cells that contain the centre of more than one object.
 
-## Steps to run Code
+![image-20250413153714309](/Users/user/Library/Application Support/typora-user-images/image-20250413153714309.png)
 
-- Clone the repository
+### Comparison with RNN, RCNN, Fast RCNN, Faster RCNN, and Mask R-CNN:
+
+CNNs struggle with multiple objects in an image. Here’s how the different models perform:
+
+- **R-CNN:** Makes regions and feeds them into a feature extractor, but it’s slow.
+- **Fast R-CNN:** Sends the whole image into the feature extractor, but still uses region proposals which slow things down.
+- **Faster R-CNN:** Uses a Region Proposal Network (RPN) to predict region proposals directly, making it faster.
+- **Mask R-CNN:** Extends Faster R-CNN to pixel-level segmentation, making it suitable for object segmentation tasks.
+
+### YOLO Evolution:
+
+YOLO has rapidly evolved, and the latest version offers significant improvements in terms of speed, accuracy, and usability. Performance is evaluated using datasets like **COCO**, **Roboflow**, **Kaggle**, and **Open Images**. (Clone the IOD v4 toolkit to download images from the **annotated** Open Image Dataset.)
+
+
+
+![image-20250411191731307](/Users/user/Library/Application Support/typora-user-images/image-20250411191731307.png)
+
+## Implementation with YOLOv8 + DeepSORT
+
+### Overview:
+
+This implementation combines YOLOv8 for object detection with DeepSORT for object tracking and identification. DeepSORT uses motion and appearance features to accurately track and ID objects across frames. Applications include manufacturing, robotics, sports, and autonomous vehicles. This project was developed using both **Google Colab** and **Visual Studio Code**.
+
+
+
+### 1) YOLOv8 Object Detection
+
+- [Kiwi Detection YOLO Google Colab File](https://drive.google.com/file/d/1HC6MzhbTIbLKyprUjc8flm7mwRyLk5aw/view?usp=drive_link)
+- [Video: Kiwi Detection YOLO](https://drive.google.com/file/d/1qUvtmcOPjccWhESFXdSoyxVZYHckWE2A/view?usp=drive_link)
+
+This includes **real-time analysis** aligned with use cases in security, robotics, and autonomous vehicles:
+
+- [Video: Live Cam Detection](https://drive.google.com/file/d/14Cym6OSh0YdzHOvUzhiFWdMUaCo9rrkW/view?usp=drive_link)
+
+  
+
+### 2) YOLOv8 + DeepSORT Object Tracking
+
+DeepSORT uses a motion predictor (Kalman filter) and appearance features to track objects. The center of the bounding box is stored in a buffer for trail visualization and ID consistency.
+
+[Object Tracking DEEPSORT Colab File](https://drive.google.com/file/d/1iayVqeYdT7QjwX-rHTUgqyEOjX3VpDCF/view?usp=drive_link)
+
+[Video: Object Detection](https://drive.google.com/file/d/1mU2CBXApxPugRhiBG6kgdAo-8zTmp8LF/view?usp=drive_link)
+
+
+
+![image-20250413155141120](/Users/user/Library/Application Support/typora-user-images/image-20250413155141120.png)
+
+
+
+### Challenges:
+
+- Needed to collect and annotate enough data (even extracted frames from YouTube videos).
+- Time-consuming annotation process due to the lack of publicly available Kiwi datasets.
+- Handling version updates and fixing associated bugs.
+
+### Future Planning:
+
+- Implement counting (requires a stable camera angle and virtual line logic).
+- Improve accuracy via segmentation, especially important for autonomous vehicle applications.
+
+## Setup
+
+### Clone the Repository:
+
 ```
-git clone https://github.com/MuhammadMoinFaisal/YOLOv8-DeepSORT-Object-Tracking.git
-```
-- Goto the cloned folder.
-```
-cd YOLOv8-DeepSORT-Object-Tracking
-```
-- Install the dependecies
-```
-pip install -e '.[dev]'
-
+git clone https://github.com/m-chuu/KiwiDetectionYOLO_mchuu.git
 ```
 
-- Setting the Directory.
-```
-cd ultralytics/yolo/v8/detect
-
-```
-- Downloading the DeepSORT Files From The Google Drive 
-```
-
-https://drive.google.com/drive/folders/1kna8eWGrSfzaR6DtNJ8_GchGgPMv3VC8?usp=sharing
-```
-- After downloading the DeepSORT Zip file from the drive, unzip it go into the subfolders and place the deep_sort_pytorch folder into the yolo/v8/detect folder
-
-- Downloading a Sample Video from the Google Drive
-```
-gdown "https://drive.google.com/uc?id=1rjBn8Fl1E_9d0EMVtL24S9aNQOJAveR5&confirm=t"
-```
-
-- Run the code with mentioned command below.
-
-- For yolov8 object detection + Tracking
-```
-python predict.py model=yolov8l.pt source="test3.mp4" show=True
-```
-- For yolov8 object detection + Tracking + Vehicle Counting
-- Download the updated predict.py file from the Google Drive and place it into ultralytics/yolo/v8/detect folder 
-- Google Drive Link
-```
-https://drive.google.com/drive/folders/1awlzTGHBBAn_2pKCkLFADMd1EN_rJETW?usp=sharing
-```
-- For yolov8 object detection + Tracking + Vehicle Counting
-```
-python predict.py model=yolov8l.pt source="test3.mp4" show=True
-```
-
-### RESULTS
-
-#### Vehicles Detection, Tracking and Counting 
-![](./figure/figure1.png)
-
-#### Vehicles Detection, Tracking and Counting
-
-![](./figure/figure3.png)
-
-### Watch the Complete Step by Step Explanation
-
-- Video Tutorial Link  [`YouTube Link`](https://www.youtube.com/watch?v=9jRRZ-WL698)
-
-
-[![Watch the Complete Tutorial for the Step by Step Explanation](https://img.youtube.com/vi/9jRRZ-WL698/0.jpg)]([https://www.youtube.com/watch?v=StTqXEQ2l-Y](https://www.youtube.com/watch?v=9jRRZ-WL698))
+Ensure you're using the correct versions of the required libraries and dependencies for YOLOv8 and DeepSORT integration.
 
