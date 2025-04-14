@@ -12,7 +12,8 @@ When multiple objects are present in an image, YOLO performs well by:
 1. Using **Intersection Over Union (IoU)** to get unique bounding boxes.
 2. Resolving grid cells that contain the centre of more than one object.
 
-![image-20250413153714309](/Users/user/Library/Application Support/typora-user-images/image-20250413153714309.png)
+![Alt text](images/1.png)
+
 
 ### Comparison with RNN, RCNN, Fast RCNN, Faster RCNN, and Mask R-CNN:
 
@@ -29,7 +30,7 @@ YOLO has rapidly evolved, and the latest version offers significant improvements
 
 
 
-![image-20250411191731307](/Users/user/Library/Application Support/typora-user-images/image-20250411191731307.png)
+![Alt text](images/2.png)
 
 ## Implementation with YOLOv8 + DeepSORT
 
@@ -60,7 +61,7 @@ DeepSORT uses a motion predictor (Kalman filter) and appearance features to trac
 
 
 
-![image-20250413155141120](/Users/user/Library/Application Support/typora-user-images/image-20250413155141120.png)
+![Alt text](images/3.png)
 
 
 
