@@ -42,7 +42,7 @@ This implementation combines YOLOv8 for object detection with DeepSORT for objec
 
 ### 1) YOLOv8 Object Detection
 
-- [Kiwi Detection YOLO Google Colab File]([https://drive.google.com/file/d/1HC6MzhbTIbLKyprUjc8flm7mwRyLk5aw/view?usp=drive_link](https://drive.google.com/file/d/1HC6MzhbTIbLKyprUjc8flm7mwRyLk5aw/view?usp=drive_link))
+- [Kiwi Detection YOLO Google Colab File](https://drive.google.com/file/d/1HC6MzhbTIbLKyprUjc8flm7mwRyLk5aw/view?usp=drive_link)
 - [Video: Kiwi Detection YOLO](https://drive.google.com/file/d/1qUvtmcOPjccWhESFXdSoyxVZYHckWE2A/view?usp=drive_link)
 
 This includes **real-time analysis** aligned with use cases in security, robotics, and autonomous vehicles:
