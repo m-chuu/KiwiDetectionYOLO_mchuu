@@ -55,9 +55,9 @@ This includes **real-time analysis** aligned with use cases in security, robotic
 
 DeepSORT uses a motion predictor (Kalman filter) and appearance features to track objects. The center of the bounding box is stored in a buffer for trail visualization and ID consistency.
 
-[Object Tracking DEEPSORT Colab File](https://drive.google.com/file/d/1iayVqeYdT7QjwX-rHTUgqyEOjX3VpDCF/view?usp=drive_link)
+- [Object Tracking DEEPSORT Colab File](https://drive.google.com/file/d/1iayVqeYdT7QjwX-rHTUgqyEOjX3VpDCF/view?usp=drive_link)
 
-[Video: Object Detection](https://drive.google.com/file/d/1mU2CBXApxPugRhiBG6kgdAo-8zTmp8LF/view?usp=drive_link)
+- [Video: Object Detection](https://drive.google.com/file/d/1mU2CBXApxPugRhiBG6kgdAo-8zTmp8LF/view?usp=drive_link)
 
 
 
